@@ -1,27 +1,20 @@
 import { Test } from './api';
 
-/////////////
-console.log('first test');
-
 const test = Test.create({
-  name: '﻿',
+  name: '﻿test﻿',
 });
 
 const binary = Test.toBinary(test);
 const fromBinary = Test.fromBinary(binary);
 
-console.log(test.name.length);
-console.log(fromBinary.name.length);
+console.log('Result of Test.create()');
+for (let i = 0; i < test.name.length; i++) {
+  process.stdout.write(`${test.name.charCodeAt(i)}, `);
+}
 
-/////////////
-console.log('second test');
+process.stdout.write('\n\n');
 
-const test2 = Test.create({
-  name: '﻿test﻿',
-});
-
-const binary2 = Test.toBinary(test2);
-const fromBinary2 = Test.fromBinary(binary2);
-
-console.log(test2.name.length);
-console.log(fromBinary2.name.length);
+console.log('Result of Test.fromBinary()');
+for (let i = 0; i < fromBinary.name.length; i++) {
+  process.stdout.write(`${fromBinary.name.charCodeAt(i)}, `);
+}
